@@ -10,8 +10,6 @@ weight: 10
 ---
 
 
-
-
 <!-- overview -->
 
 {{< glossary_definition term_id="service" length="short" >}}
@@ -242,7 +240,8 @@ DNS 레코드를 구성하고, 라운드-로빈 이름 확인 방식을
 추가와 제거를 감시한다. 각 서비스는 로컬 노드에서
 포트(임의로 선택됨)를 연다. 이 "프록시 포트"에 대한 모든
 연결은 (엔드포인트를 통해 보고된대로) 서비스의 백엔드 파드 중 하나로
-프록시된다. kube-proxy는 사용할 백엔드 파드를 결정할 때 서비스의
+프록시된다.
+kube-proxy는 사용할 백엔드 파드를 결정할 때 서비스의
 `SessionAffinity` 설정을 고려한다.
 
 마지막으로, 유저-스페이스 프록시는 서비스의
@@ -498,13 +497,13 @@ API에서 `엔드포인트` 레코드를 생성하고, DNS 구성을 수정하�
      `NodePort`와 `ClusterIP` 서비스가 자동으로 생성된다.
    * [`ExternalName`](#externalname): 값과 함께 CNAME 레코드를 리턴하여, 서비스를
      `externalName` 필드의 컨텐츠 (예:`foo.bar.example.com`)에
-     맵핑한다. 어떤 종류의 프록시도 설정되어 있지 않다.
+     맵핑한다.
+     어떤 종류의 프록시도 설정되어 있지 않다.
      {{< note >}}
      `ExternalName` 유형을 사용하려면 kube-dns 버전 1.7 또는 CoreDNS 버전 1.7 이상이 필요하다.
      {{< /note >}}
 
 [인그레스](/ko/docs/concepts/services-networking/ingress/)를 사용하여 서비스를 노출시킬 수도 있다. 인그레스는 서비스 유형이 아니지만, 클러스터의 진입점 역할을 한다. 동일한 IP 주소로 여러 서비스를 노출시킬 수 있기 때문에 라우팅 규칙을 단일 리소스로 통합할 수 있다.
-
 
 ### NodePort 유형 {#nodeport}
 
@@ -686,7 +685,7 @@ metadata:
 ```yaml
 [...]
 metadata:
-  annotations:  
+  annotations:
     service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxx
 [...]
 ```

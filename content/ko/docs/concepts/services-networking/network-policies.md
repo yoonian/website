@@ -16,7 +16,7 @@ weight: 50
 <!-- body -->
 ## 전제 조건
 
-네트워크 정책은 [네트워크 플러그인](/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/)으로 구현된다. 네트워크 정책을 사용하려면 NetworkPolicy를 지원하는 네트워킹 솔루션을 사용해야만 한다. 이를 구현하는 컨트롤러 없이 NetworkPolicy 리소스를 생성해도 아무런 효과가 없기 때문이다.
+네트워크 정책은 [네트워크 플러그인](/ko/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/)으로 구현된다. 네트워크 정책을 사용하려면 NetworkPolicy를 지원하는 네트워킹 솔루션을 사용해야만 한다. 이를 구현하는 컨트롤러 없이 NetworkPolicy 리소스를 생성해도 아무런 효과가 없기 때문이다.
 
 ## 격리 및 격리되지 않은 파드
 
@@ -150,11 +150,11 @@ __ipBlock__: 인그레스 소스 또는 이그레스 대상으로 허용할 IP C
 발생한 것인지 정의되지 않으며, 네트워크 플러그인, 클라우드 공급자,
 `서비스` 구현 등의 조합에 따라 동작이 다를 수 있다.
 
-인그레스 사례에서의 의미는 실제 원본 소스 IP를 기준으로 들어오는 패킷을 
-필터링할 수 있는 반면에 다른 경우에는 NetworkPolicy가 작동하는 
+인그레스 사례에서의 의미는 실제 원본 소스 IP를 기준으로 들어오는 패킷을
+필터링할 수 있는 반면에 다른 경우에는 NetworkPolicy가 작동하는
 "소스 IP"는 `LoadBalancer` 또는 파드가 속한 노드 등의 IP일 수 있다.
 
-이그레스의 경우 파드에서 클러스터 외부 IP로 다시 작성된 `서비스` IP로의 연결은 
+이그레스의 경우 파드에서 클러스터 외부 IP로 다시 작성된 `서비스` IP로의 연결은
 `ipBlock` 기반의 정책의 적용을 받거나 받지 않을 수 있다는 것을 의미한다.
 
 ## 기본 정책
@@ -182,7 +182,7 @@ __ipBlock__: 인그레스 소스 또는 이그레스 대상으로 허용할 IP C
 
 {{< codenew file="service/networking/network-policy-default-deny-egress.yaml" >}}
 
-이렇게 하면 다른 NetworkPolicy에서 선택하지 않은 파드조차도 이그레스 트래픽을 허용하지 않는다. 이 정책은 
+이렇게 하면 다른 NetworkPolicy에서 선택하지 않은 파드조차도 이그레스 트래픽을 허용하지 않는다. 이 정책은
 기본 인그레스 격리 정책을 변경하지 않는다.
 
 ### 기본적으로 모든 이그레스 트래픽 허용
